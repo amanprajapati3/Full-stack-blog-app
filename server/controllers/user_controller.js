@@ -47,51 +47,35 @@ export const registered = async (req, res) => {
 
 // Login
 export const login = async (req, res) => {
-  const { email, password, role } = req.body;
   try {
-    if (!email || !password || !role) {
-      return res.status(400).json({ message: "Please fill required fields" });
+    const { email, password } = req.body;
+    const user = await Users.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
     }
 
-    const user = await Users.findOne({ email }).select("+password");
-    if (!user || !user.password) {
-      return res.status(401).json({ message: "Invalid email or password" });
+    const isPasswordValid = bcrypt.compare(password, user.password);
+    if (!isPasswordValid) {
+      return res.status(400).json({ error: "Invalid credentials" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(401).json({ message: "Invalid email or password" });
-    }
-
-    if (user.role !== role) {
-      return res.status(401).json({ message: `Given role ${role} not found` });
-    }
-
-  
-    const token = await createTokenAndSaveCookies(user._id, res);
-    console.log("Login token:", token);
-
-      // ✅ Set token as HTTP-only cookie
-      res.cookie("jwt", token, {
-        httpOnly: true, // ✅ Prevents XSS attacks
-        secure: process.env.NODE_ENV === "production", // ✅ HTTPS in production
-        sameSite: "strict", // ✅ Prevents CSRF attacks
-        maxAge: 7 * 24 * 60 * 60 * 1000, // ✅ 7 days
-      });
-
-    res.status(200).json({
-      message: "User logged in successfully",
-      user: {
-        _id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
-      },
-      token: token,
+    // ✅ Generate JWT Token
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, {
+      expiresIn: "1h",
     });
+
+    // ✅ Send HTTP-Only Cookie
+    res.cookie("jwt", token, {
+      httpOnly: true, // Prevents access from JavaScript (security)
+      secure: process.env.NODE_ENV === "production", // Only send in HTTPS (for production)
+      sameSite: "strict", // Prevents CSRF attacks
+      maxAge: 3600000, // 1 hour
+    });
+
+    res.status(200).json({ message: "Login successful", token });
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ error: "Internal server error" });
   }
 };
 
@@ -101,71 +85,7 @@ export const logOut = async (req, res) => {
   res.status(200).json({ message: "User Logout successfully." });
 };
 
-// // Read
-// export const GetAll = async (req, res) => {
-//   try {
-//     const user_data = await Users.find();
-//     if (!user_data) {
-//       return res.status(404).json({ msg: "User data not found" });
-//     }
-//     res.status(200).json(user_data);
-//   } catch (error) {
-//     res.status(500).json({ error: error });
-//   }
-// };
-
-// export const getOne = async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const UserExist = await Users.findById(id);
-//     if (!UserExist) {
-//       return res.status(200).json({ msg: "User not exist." });
-//     }
-//     res.status(200).json(UserExist);
-//   } catch (error) {
-//     res.status(404).json({ error: error });
-//   }
-// };
-
-// // Update
-// export const Updata_userData = async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const UserExist = await Users.findById(id);
-//     if (!UserExist) {
-//       return res.status(404).json({ msg: "user not exist" });
-//     }
-//     const updateUserData = await Users.findByIdAndUpdate(id, req.body, {
-//       new: true,
-//     });
-//     res.status(200).json({ msg: "User Updated Successfully" });
-//   } catch (error) {
-//     res.status(404).json({ error: error });
-//   }
-// };
-
-// // Delete
-// export const Delete_User = async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const UserExist = await Users.findById(id);
-//     if (!UserExist) {
-//       return res.status(404).json({ msg: "User not found" });
-//     }
-//     await Users.findByIdAndDelete(id);
-//     res.status(200).json({ msg: "user has been deleted." });
-//   } catch (error) {}
-// };
-
 // get all admins
-// export const AllAdmin = async (req, res, next) => {
-//   try {
-//     const admin = await Users.find({ role: "admin" });
-//     res.status(400).json(admin);
-//   } catch (error) {
-//     res.status(404).json({ error: error });
-//   }
-// };
 
 export const AllAdmin = async (req, res, next) => {
   try {

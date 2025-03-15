@@ -1,31 +1,36 @@
 import Users from "../models/user_models.js";
 import jwt from "jsonwebtoken";
 
+// ✅ Improved Authentication Middleware
 export const isAuthenticated = async (req, res, next) => {
   try {
-    console.log("📝 All Cookies:", req.cookies); // ✅ Debugging line
+    console.log("📝 Cookies received:", req.cookies);
 
-    const token = req.cookies.jwt; // 🛑 If this is undefined, cookies aren't being sent!
-    console.log(`Middleware Token: ${token}`);
+    const token = req.cookies?.jwt; // Check if cookies exist
+    console.log("📌 Token extracted:", token);
 
     if (!token) {
-      return res.status(401).json({ error: "User not authenticated." });
+      return res.status(401).json({ error: "User not authenticated. Token is missing." });
     }
 
+    // ✅ Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
+    console.log("✅ Decoded token:", decoded);
+
+    // ✅ Fetch user from DB
     const user = await Users.findById(decoded.userId);
 
     if (!user) {
       return res.status(404).json({ error: "User not found." });
     }
 
-    req.user = user;
+    req.user = user; // Attach user to request
     next();
   } catch (error) {
-    console.log("Authentication error:", error);
+    console.error("❌ Authentication error:", error);
 
     if (error.name === "TokenExpiredError") {
-      return res.status(401).json({ error: "Token has expired. Please log in again." });
+      return res.status(401).json({ error: "Session expired. Please log in again." });
     }
 
     if (error.name === "JsonWebTokenError") {
@@ -36,11 +41,17 @@ export const isAuthenticated = async (req, res, next) => {
   }
 };
 
-export const isAdmin = (...roles) =>{
-    return (req, res, next)=>{
-      if(!roles.includes(req.Users.role)){
-        return res.status(403).json({message: `user with given role ${req.Users.role} not allowed.`})
-      }
-      next();
+// ✅ Improved Admin Middleware
+export const isAdmin = (...roles) => {
+  return (req, res, next) => {
+    if (!req.user) {
+      return res.status(401).json({ message: "User not authenticated." });
     }
-}
+
+    if (!roles.includes(req.user.role)) {
+      return res.status(403).json({ message: `Access denied. Role '${req.user.role}' not allowed.` });
+    }
+
+    next(); 
+  };
+};
