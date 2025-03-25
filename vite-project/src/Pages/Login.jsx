@@ -36,18 +36,18 @@ const HandleSubmitForm = async (e) => {
   return (
     <>
      <div className="flex justify-center mt-12 mb-12">
-        <div className="rounded-xl  shadow-2xl shadow-gray-300 p-5">
+        <div className="rounded-xl shadow-2xl shadow-gray-800 p-5">
           <h1 className="text-center text-xl">
             Aman<span className="text-blue-700">Blog</span>
           </h1>
-          <h1 className="font-bold py-5 text-left">Login</h1>
+          <h1 className="font-bold py-5 text-xl text-left">Login</h1>
           <form action="/register" method="post" className="ml-5 lg:text-xl" onSubmit={HandleSubmitForm}>
             <select
               name="role"
               id="roles"
               onChange={form_data}
               required
-              className="rounded-md border-2 border-gray-200 outline-none  w-[100%] py-1 pl-2 my-3 focus:bg-gray-200"
+               className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             >
               <option value="">Select Roles</option>
               <option value="admin" name="admin">
@@ -64,7 +64,7 @@ const HandleSubmitForm = async (e) => {
               name="email"
               required
               onChange={form_data}
-              className="rounded-md outline-none border-2 border-gray-200 py-1 focus:bg-gray-200 pl-2 my-3 w-[100%]"
+               className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />{" "}
             <br />
             <input
@@ -73,7 +73,7 @@ const HandleSubmitForm = async (e) => {
               name="password"
               required
               onChange={form_data}
-              className="rounded-md outline-none border-2 border-gray-200 py-1 focus:bg-gray-200 pl-2 my-3 w-[100%]"
+               className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />
             <center className="py-2">New User? <a href="/registered" className="text-blue-700">Register</a></center>
             <button type="submit" className="rounded-md bg-blue-800 active:bg-blue-500 text-white mt-1 mb-4 w-[100%] py-1 hover:bg-blue-500">

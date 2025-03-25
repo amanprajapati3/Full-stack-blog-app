@@ -11,10 +11,10 @@ const Header = () => {
 
   return (
     <>
-      <div className="sm:px-10 py-4 bg-blue-100 shadow-xl shadow-gray-300 flex justify-between relative top-0">
+      <div className="sm:px-16 py-3 bg-blue-100 shadow-xl shadow-gray-300 flex justify-between relative top-0">
         <div>
           <a href="/">
-          <label htmlFor="" className="text-2xl lg:text-4xl font-sans p-1 hover:text-blue-700">
+          <label htmlFor="" className="text-2xl lg:text-3xl font-sans p-1 hover:text-blue-700">
             Aman<span className="text-blue-800 hover:text-black">Blog</span>
           </label>
           </a>
@@ -41,19 +41,19 @@ const Header = () => {
         <nav className="">
           <ul className="hidden md:flex gap-4 mt-1">
             <li>
-              <a href="/" className="hover:bg-blue-600 hover:text-white rounded-md p-1 lg:text-xl">HOME</a>
+              <a href="/" className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">HOME</a>
             </li>
             <li>
-              <a href="/blog"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 lg:text-xl">BLOGS</a>
+              <a href="/blog"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">BLOGS</a>
             </li>
             <li>
-              <a href="/creators"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 lg:text-xl">CREATORS</a>
+              <a href="/creators"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">CREATORS</a>
             </li>
             <li>
-              <a href="/about"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 lg:text-xl">ABOUT</a>
+              <a href="/about"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">ABOUT</a>
             </li>
             <li>
-              <a href="/contact"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 lg:text-xl">CONTACT</a>
+              <a href="/contact"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">CONTACT</a>
             </li>
           </ul>
         </nav>
@@ -63,11 +63,11 @@ const Header = () => {
                 { IsMenuOpen ? (<FaTimes/>)   : (<FaBars/>)}             
             </button>
           </div>
-          <button className="p-1 h-fit lg:text-xl bg-blue-800 hover:opacity-90 text-white rounded-sm">
+          <button className="p-1 h-fit bg-blue-800 hover:opacity-90 text-white rounded-sm">
             {" "}
             <a href="/dashboard">Dashboard</a>
           </button>
-          <button className="p-1 h-fit lg:text-xl bg-red-800 hover:opacity-90 text-white rounded-sm">
+          <button className="p-1 h-fit  bg-red-800 hover:opacity-90 text-white rounded-sm">
             {" "}
             <a href="/registered">Register</a>
           </button>

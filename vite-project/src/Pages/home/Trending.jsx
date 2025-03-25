@@ -43,7 +43,7 @@ const Trending = () => {
 
   return (
     <>
-      <h1 className="font-bold font-sans text-3xl pb-10 pl-24">Trending</h1>
+      <h1 className="font-bold font-sans text-2xl pb-10 pl-24">Trending</h1>
       <div className="border-2 border-gray-300 md:mx-20 mb-20 p-5 rounded-xl">
         <Carousel responsive={responsive}>
           {blogs.slice(0, 8).map((blog) => {
@@ -61,10 +61,10 @@ const Trending = () => {
                   className="w-full h-60 transition-all duration-200 rounded-xl filter grayscale-100 hover:grayscale-0"
                 />
                 </a>
-                <h1 className="text-3xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
+                <h1 className="text-2xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
                   {blog.category}
                 </h1>
-                <p className="text-xl relative  mb-5 ml-5  font-sans  ">
+                <p className="relative  mb-5 ml-5  font-sans  ">
                   {blog.title}
                 </p>
               </div>

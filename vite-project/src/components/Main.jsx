@@ -33,7 +33,7 @@ const Main = () => {
                   {" "}
                   {/* Use a unique identifier like _id */}{" "}
                   <img src={blog.blog_img.url} alt="" className="w-full h-60  transition-all duration-200 filter grayscale-100 hover:grayscale-0" />
-                  <h1 className="text-2xl font-sans font-bold text-center pt-4">
+                  <h1 className="text-xl font-sans font-bold text-center pt-4">
                     {blog.category}
                   </h1>
                 </div>

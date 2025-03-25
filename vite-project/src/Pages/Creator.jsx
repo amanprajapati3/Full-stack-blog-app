@@ -45,9 +45,9 @@ const Creator = () => {
               />
               </center>
           <h1 className="text-2xl font-sans font-bold text-center pt-4">{admins.name}</h1>
-          <h1 className="text-xl font-sans pt-2 text-center">{admins.email}</h1>
-          <h1 className="text-xl font-sans text-center">{admins.phone}</h1>
-          <h1 className="text-xl font-sans text-center">{admins.role}</h1>
+          <h1 className="font-sans pt-2 text-center">{admins.email}</h1>
+          <h1 className="font-sans text-center">{admins.phone}</h1>
+          <h1 className="font-sans text-center">{admins.role}</h1>
         </div>
       );
     })}

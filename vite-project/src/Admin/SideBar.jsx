@@ -67,7 +67,7 @@ const SideBar = ({ setComponent }) => {
             <li className="mb-5 ">
               <button
                 onClick={() => HandleComponents("My_blog")}
-                className="text-xl hover:cursor-pointer text-white bg-green-900 py-2 px-20 md:px-28 rounded-xl hover:bg-green-700"
+                className=" hover:cursor-pointer text-white bg-green-900 py-2 px-20 md:px-28 rounded-xl hover:bg-green-700"
               >
                 My Blog
               </button>
@@ -75,7 +75,7 @@ const SideBar = ({ setComponent }) => {
             <li className="mb-5">
               <button
                 onClick={() => HandleComponents("Create_blog")}
-                className="text-xl hover:cursor-pointer text-white bg-blue-900 py-2 px-16 md:px-[90px] rounded-xl hover:bg-blue-700"
+                className=" hover:cursor-pointer text-white bg-blue-900 py-2 px-16 md:px-[90px] rounded-xl hover:bg-blue-700"
               >
                 Create Blog
               </button>
@@ -83,7 +83,7 @@ const SideBar = ({ setComponent }) => {
             <li className="mb-5">
               <button
                 onClick={() => HandleComponents("My_profile")}
-                className="text-xl hover:cursor-pointer text-white bg-purple-900 py-2 px-16 md:px-[103px] rounded-xl hover:bg-purple-700"
+                className=" hover:cursor-pointer text-white bg-purple-900 py-2 px-16 md:px-[103px] rounded-xl hover:bg-purple-700"
               >
                 My Profile
               </button>
@@ -91,7 +91,7 @@ const SideBar = ({ setComponent }) => {
             <li className="mb-5">
               <button
                 onClick={GoToHome}
-                className="text-xl hover:cursor-pointer text-white bg-red-700 py-2 px-16 md:px-[120px] rounded-xl hover:bg-red-500"
+                className=" hover:cursor-pointer text-white bg-red-700 py-2 px-16 md:px-[120px] rounded-xl hover:bg-red-500"
               >
                 Home
               </button>
@@ -99,7 +99,7 @@ const SideBar = ({ setComponent }) => {
             <li className="mb-5">
               <button
                 onClick={() => HandleComponents("")}
-                className="text-xl hover:cursor-pointer text-white bg-yellow-500 py-2 px-16 md:px-[115px] rounded-xl hover:bg-yellow-400"
+                className=" hover:cursor-pointer text-white bg-yellow-500 py-2 px-16 md:px-[115px] rounded-xl hover:bg-yellow-400"
               >
                 Logout
               </button>

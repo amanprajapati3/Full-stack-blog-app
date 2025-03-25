@@ -64,16 +64,16 @@ const Registeres = () => {
   return (
     <>
       <div className="flex justify-center mt-12 mb-12">
-        <div className="rounded-xl  shadow-2xl shadow-gray-300 p-5">
-          <h1 className="text-center text-xl lg:text-4xl">
+        <div className="rounded-xl  shadow-2xl shadow-gray-800 p-5">
+          <h1 className="text-center text-xl lg:text-3xl">
             Aman<span className="text-blue-700">Blog</span>
           </h1>
-          <h1 className="font-bold py-5 text-left lg:text-2xl">Register</h1>
-          <form action={"/registered"} className="ml-5 lg:text-xl" onSubmit={HandleSubmitForm} >
+          <h1 className="font-bold py-5 text-left lg:text-xl">Register</h1>
+          <form action={"/registered"} className="ml-5 " onSubmit={HandleSubmitForm} >
             <select
               name="role"
               onChange={inputHandler}
-              className="rounded-md border-2 border-gray-200 outline-none  w-[100%] py-1 pl-2 my-3 focus:bg-gray-200"
+              className="rounded-md border-2 border-gray-500 outline-none  w-[100%] py-2 pl-2 my-3 focus:bg-gray-200"
             >
               <option value="">Select Roles</option>
               <option value="admin" name="admin">
@@ -90,7 +90,7 @@ const Registeres = () => {
               name="name"
               onChange={inputHandler}
               required
-              className="rounded-md outline-none border-2 border-gray-200 py-1 focus:bg-gray-200 pl-2 my-3 w-[100%]"
+              className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />{" "}
             <br />
             <input
@@ -99,7 +99,7 @@ const Registeres = () => {
               name="email"
               required
               onChange={inputHandler}
-              className="rounded-md outline-none border-2 border-gray-200 py-1 focus:bg-gray-200 pl-2 my-3 w-[100%]"
+              className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />{" "}
             <br />
             <input
@@ -108,7 +108,7 @@ const Registeres = () => {
               name="phone"
               required
               onChange={inputHandler}
-              className="rounded-md outline-none border-2 border-gray-200 py-1 focus:bg-gray-200 pl-2 my-3 w-[100%]"
+             className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />{" "}
             <br />
             <input
@@ -117,14 +117,14 @@ const Registeres = () => {
               name="password"
               required
               onChange={inputHandler}
-              className="rounded-md outline-none border-2 border-gray-200 py-1 focus:bg-gray-200 pl-2 my-3 w-[100%]"
+             className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />
             <select
               name="education"
               id="education"
               required
               onChange={inputHandler}
-              className="rounded-md border-2 border-gray-200 outline-none  w-[100%] py-1 pl-2 my-3 focus:bg-gray-200"
+             className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             >
               <option value="Select Roles">Select Your Education</option>
               <option value="UnderGraduate" name="UnderGraduate">

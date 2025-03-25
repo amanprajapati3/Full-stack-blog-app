@@ -22,7 +22,7 @@ const Creators = () => {
   return (
     <>
       <div className="mb-16">
-        <h1 className="font-bold font-sans text-3xl pl-24">Creators</h1>
+        <h1 className="font-bold font-sans text-2xl pl-24">Creators</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-7  md:grid-cols-3 lg:grid-cols-4 mx-32 mt-6">
         {admin.slice(0, 4).map((admins) => {
           return (
@@ -33,8 +33,8 @@ const Creators = () => {
                 alt=""
                 className="w-[90%] rounded-[70%] border-4 border-gray-300 p-5"
               />
-              <h1 className="text-xl font-sans font-bold text-center py-4">{admins.name}</h1>
-              <h1 className="text-xl font-sans font-bold text-center">{admins.role}</h1>
+              <h1 className="font-sans font-bold text-center py-4">{admins.name}</h1>
+              <h1 className="font-sans font-bold text-center">{admins.role}</h1>
             </div>
           );
         })}

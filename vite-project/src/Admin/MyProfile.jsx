@@ -21,7 +21,7 @@ const MyProfile = () => {
 
   return (
     <>
-    <h1 className="text-3xl font-bold font-sans p-5">My Profile</h1>
+    <h1 className="text-2xl font-bold font-sans p-5">My Profile</h1>
       {admin.slice(0, 1).map((admins) => {
         return (
           <div
@@ -37,13 +37,13 @@ const MyProfile = () => {
               <h1 className="text-xl font-sans pt-3 font-bold text-center">
                 {admins.name}
               </h1>
-              <h1 className="text-xl font-sans font-bold text-center">
+              <h1 className="font-sans font-bold text-center">
                 {admins.role}
               </h1>
-              <h1 className="text-xl font-sans pt-2 text-center">
+              <h1 className="font-sans pt-2 text-center">
                 {admins.email}
               </h1>
-              <h1 className="text-xl font-sans text-center">
+              <h1 className="font-sans text-center">
                 Phone: {admins.phone}
               </h1>
             </div>

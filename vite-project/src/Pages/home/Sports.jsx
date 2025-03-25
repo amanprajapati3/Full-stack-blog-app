@@ -23,8 +23,8 @@ const Sports = () => {
 
   return (
     <>
-      <h1 className="font-bold font-sans text-3xl  pl-24">Sports</h1>
-      <p className="text-center py-5 lg:text-xl">
+      <h1 className="font-bold font-sans text-2xl  pl-24">Sports</h1>
+      <p className="text-center py-2">
         Here you will get all the latest and updated blog about the sports of
         national and international events.
       </p>
@@ -46,10 +46,10 @@ const Sports = () => {
                       className="w-full h-60  transition-all duration-200 rounded-xl filter grayscale-100 hover:grayscale-0"
                     />
                   </a>
-                  <h1 className="text-3xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
+                  <h1 className="text-2xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
                     {blog.category}
                   </h1>
-                  <p className="text-xl relative  mb-5 ml-5  font-sans  ">
+                  <p className=" relative  mb-5 ml-5  font-sans  ">
                     {blog.title}
                   </p>
                 </div>

@@ -74,11 +74,11 @@ const CreateBlog = () => {
 
   return (
     <>
-      <h1 className="text-3xl font-bold font-sans p-5">Create Blog</h1>
+      <h1 className="text-2xl font-bold font-sans p-5">Create Blog</h1>
       <div>
         <form
           action={"/CreateBlog"}
-          className="ml-5 lg:text-xl w-[100%]"
+          className="ml-5  w-[100%]"
           onSubmit={HandleSubmitForm}
         >
           <h1 className="pt-5">Category</h1>
