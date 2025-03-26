@@ -62,8 +62,7 @@ if (
 }
 
 const port = 3600;
-const mongo_url =
-  "mongodb+srv://aman_sid:aman_sid3114@backendwithaman.elzjx.mongodb.net/?retryWrites=true&w=majority&appName=BackendWithAman";
+const mongo_url = process.env.DATABASE_URL
 mongoose
   .connect(mongo_url)
   .then(() => {
