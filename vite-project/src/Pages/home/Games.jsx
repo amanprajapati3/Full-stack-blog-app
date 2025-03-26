@@ -44,7 +44,7 @@ const Games = () => {
                   <h1 className="text-2xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
                     {blog.category}
                   </h1>
-                  <p className=" relative  mb-5 ml-5  font-sans  ">
+                  <p className=" relative  mb-5 ml-5 ">
                     {blog.title}
                   </p>
                 </div>
