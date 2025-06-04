@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { NavLink } from "react-router-dom";
 
 const Myblog = () => {
 
@@ -53,7 +54,7 @@ const Myblog = () => {
                   <img src={blog.blog_img.url} alt="" className="w-[100%] h-60  transition-all duration-200 filter grayscale-100 hover:grayscale-0" />
                   <div className="flex justify-between mx-5 mt-3">
                   <button className="p-2 rounded-md bg-yellow-600 hover:bg-yellow-700 active:bg-yellow-700 cursor-pointer text-white ">
-                    <a href={`/update/${blog._id}`}>Update</a>  
+                    <NavLink to={`/update/${blog._id}`}>Update</NavLink>  
                   </button>
                   <button  onClick={() => DeleteUser(blog._id)} className="p-2 rounded-md bg-red-600 cursor-pointer hover:bg-red-700 active:bg-red-700 text-white ">
                     Delete

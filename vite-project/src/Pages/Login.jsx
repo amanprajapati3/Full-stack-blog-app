@@ -41,7 +41,7 @@ const HandleSubmitForm = async (e) => {
             Aman<span className="text-blue-700">Blog</span>
           </h1>
           <h1 className="font-bold py-5 text-xl text-left">Login</h1>
-          <form action="/register" method="post" className="ml-5 lg:text-xl" onSubmit={HandleSubmitForm}>
+          <form action="/register" method="post" className="ml-5 text-sm" onSubmit={HandleSubmitForm}>
             <select
               name="role"
               id="roles"
