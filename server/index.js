@@ -67,7 +67,7 @@ mongoose
   .connect(mongo_url)
   .then(() => {
     console.log("connected to server successfully");
-    app.listen(PORT, () => {
+    app.listen(port, () => {
       console.log(
         `your website is running at address http://localhost:${port}`
       );
