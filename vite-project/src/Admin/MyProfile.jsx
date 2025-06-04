@@ -21,14 +21,14 @@ const MyProfile = () => {
 
   return (
     <>
-    <h1 className="text-2xl font-bold font-sans p-5">My Profile</h1>
+    <h1 className="text-2xl font-bold font-sans pt-2">My Profile</h1>
       {admin.slice(0, 1).map((admins) => {
         return (
           <div
             key={admins._id}
-            className="ml-20 mt-12 shadow-2xl shadow-gray-500 rounded-xl"
+            className="sm:ml-20 mt-3 sm:mt-12  rounded-xl flex justify-center"
           >
-            <div className="p-12 bg-white rounded-xl">
+            <div className="p-12  rounded-xl">
               <img
                 src="https://i.pinimg.com/736x/f1/a6/63/f1a663a0796011bb3fbc688b0169335d.jpg"
                 alt=""

@@ -74,11 +74,11 @@ const CreateBlog = () => {
 
   return (
     <>
-      <h1 className="text-2xl font-bold font-sans p-5">Create Blog</h1>
+      <h1 className="text-2xl font-bold font-sans pt-2">Create Blog</h1>
       <div>
         <form
           action={"/CreateBlog"}
-          className="ml-5  w-[100%]"
+          className="sm:ml-5 p-2 w-[100%]"
           onSubmit={HandleSubmitForm}
         >
           <h1 className="pt-5">Category</h1>
@@ -140,7 +140,7 @@ const CreateBlog = () => {
             type="submit"
             className="rounded-md hover:bg-blue-500 hover:cursor-pointer bg-blue-800 active:bg-blue-500 text-white mt-1 mb-4 w-[100%] py-1"
           >
-            Register
+            Create
           </button>
         </form>
       </div>

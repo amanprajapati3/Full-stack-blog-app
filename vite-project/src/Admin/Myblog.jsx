@@ -38,7 +38,7 @@ const Myblog = () => {
 
   return (
     <>
-    <h1 className="text-2xl font-bold font-sans p-5">My Blog</h1>
+    <h1 className="text-2xl font-bold font-sans p-3">My Blog</h1>
     <div className=" mb-16 flex justify-center w-[100%]">
         <div className=" gap-5">
           <div className="grid grid-cols-1 md:grid-col-2 lg:grid-cols-3 mt-6 gap-5">
@@ -60,7 +60,7 @@ const Myblog = () => {
                   </button>
                   </div>
                   <h1 className="text-xl font-sans font-bold text-center pt-4">
-                    {blog.category}
+                    {blog.title}
                   </h1>
                 </div>
               );

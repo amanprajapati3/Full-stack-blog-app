@@ -35,7 +35,7 @@ const Contact = () => {
           <h1 className="text-2xl text-center font-bold font-mono lg:text-3xl">
             Contact Us
           </h1>
-          <div className="mt-3 flex gap-10 flex-wrap">
+          <div className="mt-3 justify-center flex gap-10 flex-wrap">
             <div>
               <label htmlFor="" className="font-bold font-sans lg:text-xl">
                 Send us a message
@@ -87,7 +87,7 @@ const Contact = () => {
                 )}
                 <button
                   type="submit"
-                  className="rounded-md bg-black text-white py-1 w-[100%] hover:bg-gray-900 active:bg-black hover:cursor-pointer"
+                  className="rounded-md bg-black text-white py-3 w-[100%] hover:bg-gray-900 active:bg-black hover:cursor-pointer"
                 >
                   Send Message
                 </button>

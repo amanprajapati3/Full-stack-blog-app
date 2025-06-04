@@ -43,14 +43,14 @@ const Trending = () => {
 
   return (
     <>
-      <h1 className="font-bold font-sans text-2xl pb-10 pl-24">Trending</h1>
+      <h1 className="font-bold text-center md:text-left font-sans text-2xl pb-10 md:pl-24">Trending</h1>
       <div className="border-2 border-gray-300 md:mx-20 mb-20 p-5 rounded-xl">
         <Carousel responsive={responsive}>
           {blogs.slice(0, 8).map((blog) => {
             return (
               <div
                 key={blog._id}
-                className="border-2 border-gray-300 rounded-2xl gap-5 p-2 cursor-pointer"
+                className="border-2 border-gray-300 rounded-2xl gap-5 overflow-hidden cursor-pointer"
               >
                 {" "}
                 {/* Use a unique identifier like _id */}{" "}
@@ -58,7 +58,7 @@ const Trending = () => {
                 <img
                   src={blog.blog_img.url}
                   alt=""
-                  className="w-full h-60 transition-all duration-200 rounded-xl filter grayscale-100 hover:grayscale-0"
+                  className="w-full h-60 transition-all duration-300 rounded-xl hover:scale-110"
                 />
                 </a>
                 <h1 className="text-2xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">

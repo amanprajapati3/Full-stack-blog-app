@@ -25,9 +25,9 @@ const Creator = () => {
 
   return (
     <>
-    <div className="mb-16 mt-12">
-    <h1 className="font-bold font-sans text-2xl pb-10 pl-24">Creators</h1>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 lg:mx-16 mx-10 mt-6">
+    <div className="mb-16 mt-8">
+    <h1 className="font-bold font-sans text-2xl md:pl-24 text-center md:text-start">Creators</h1>
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 lg:mx-16 sm:mx-10 mx-7 mt-6">
     {admin.slice(0, 8).map((admins) => {
       return (
         <div key={admins._id} className='border-2 border-gray-300 rounded-2xl p-2'>

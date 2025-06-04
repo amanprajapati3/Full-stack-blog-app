@@ -1,77 +1,92 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
-
   const [IsMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-   setIsMenuOpen(!IsMenuOpen);
-  }
+    setIsMenuOpen(!IsMenuOpen);
+  };
 
   return (
     <>
-      <div className="sm:px-16 py-3 bg-blue-100 shadow-xl shadow-gray-300 flex justify-between relative top-0">
+      <div className="sm:px-16  bg-gray-300  flex justify-between sticky w-full z-10 px-2 top-0">
         <div>
-          <a href="/">
-          <label htmlFor="" className="text-2xl lg:text-3xl font-sans p-1 hover:text-blue-700">
-            Aman<span className="text-blue-800 hover:text-black">Blog</span>
-          </label>
-          </a>
-
-          {/* navbar for mobile responsive */}
-          <ul className={`${IsMenuOpen?"block mt-4 w-[100%]":"hidden"}`}>
-            <li className="py-1 px-20 rounded-md hover:bg-blue-600 hover:text-white">
-              <a href="/" className=" rounded-md lg:text-xl ">HOME</a>
-            </li>
-            <li className="py-1 px-20 rounded-md hover:bg-blue-600 hover:text-white">
-              <a href="/blog"  className=" rounded-md lg:text-xl ">BLOGS</a>
-            </li>
-            <li className="py-1 px-20 rounded-md hover:bg-blue-600 hover:text-white">
-              <a href="/creators"  className=" rounded-md lg:text-xl ">CREATORS</a>
-            </li>
-            <li className="py-1 px-20 rounded-md hover:bg-blue-600 hover:text-white">
-              <a href="/about"  className=" rounded-md lg:text-xl ">ABOUT</a>
-            </li>
-            <li className="py-1 px-20 rounded-md hover:bg-blue-600 hover:text-white">
-              <a href="/contact"  className=" rounded-md lg:text-xl ">CONTACT</a>
-            </li>
-          </ul>
+          <NavLink to={"/"}>
+            <h1 className="text-2xl lg:text-3xl pt-3 font-sans hover:text-blue-700">
+              Aman<span className="text-blue-800 hover:text-black">Blog</span>
+            </h1>
+          </NavLink>
         </div>
         <nav className="">
-          <ul className="hidden md:flex gap-4 mt-1">
-            <li>
-              <a href="/" className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">HOME</a>
+          <ul className="hidden md:flex h-full ">
+            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
+              <NavLink to={"/"}>Home</NavLink>
+              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
             </li>
-            <li>
-              <a href="/blog"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">BLOGS</a>
+            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
+              <NavLink to={"/blog"}>Blog</NavLink>
+              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
             </li>
-            <li>
-              <a href="/creators"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">CREATORS</a>
+            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
+              <NavLink to={"/creators"}>Creator</NavLink>
+              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
             </li>
-            <li>
-              <a href="/about"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">ABOUT</a>
+            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
+              <NavLink to={"/about"}>About</NavLink>
+              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
             </li>
-            <li>
-              <a href="/contact"  className="hover:bg-blue-600 hover:text-white rounded-md p-1 transition-all duration-300">CONTACT</a>
+            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
+              <NavLink to={"/Contact"}>Contact</NavLink>
+              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
             </li>
           </ul>
         </nav>
-        <div className="flex gap-5 mr-3">
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="text-xl pt-1 sm:text-2xl">
-                { IsMenuOpen ? (<FaTimes/>)   : (<FaBars/>)}             
+        <div className="flex sm:gap-5 gap-2 sm:mr-1 my-3">
+          <div className="md:hidden">
+            <button onClick={toggleMenu} className="text-xl pt-1 sm:text-2xl cursor-pointer">
+              {IsMenuOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
           <button className="p-1 h-fit bg-blue-800 hover:opacity-90 text-white rounded-sm">
             {" "}
-            <a href="/dashboard">Dashboard</a>
+            <NavLink to={"/dashboard"}>Admin</NavLink>
           </button>
           <button className="p-1 h-fit  bg-red-800 hover:opacity-90 text-white rounded-sm">
             {" "}
-            <a href="/registered">Register</a>
+            <NavLink to={"/registered"}>Login</NavLink>
           </button>
         </div>
+      </div>
+      {/* navbar for mobile responsive */}
+      <div className="flex text-center justify-center">
+        <ul
+          className={`transition-all duration-300 ${
+            IsMenuOpen ? "block scale-y-100 mt-4 " : "hidden scale-y-0"
+          }`}
+        >
+          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
+            <NavLink to={"/"}>Home</NavLink>
+            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
+          </li>
+          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
+            <NavLink to={"/blog"}>Blog</NavLink>
+            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
+          </li>
+          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
+            <NavLink to={"/creators"}>Creators</NavLink>
+            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
+          </li>
+          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
+            <NavLink to={"/about"}>About</NavLink>
+            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
+          </li>
+          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
+            <NavLink to={"/contact"}>Contact</NavLink>
+            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
+          </li>
+        </ul>
       </div>
     </>
   );

@@ -62,11 +62,11 @@ const Update = () => {
   return (
     <>
       <div>
-        <h1 className="text-3xl font-bold font-sans p-10">Update Blog</h1>
+        <h1 className="text-3xl font-bold font-sans sm:p-10 p-3">Update Blog</h1>
         <div className="flex justify-center">
         <form
           action={"/CreateBlog"}
-          className="ml-5 lg:text-xl "
+          className="sm:ml-5 p-3 lg:text-xl "
           onSubmit={HandleSubmitForm}
         >
           <h1 className="pt-5">Category</h1>

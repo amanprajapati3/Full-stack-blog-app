@@ -2,8 +2,8 @@
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-center mt-5 border-t-4 border-cyan-300">
-        <div className="grid grid-cols-2 sm:grid-cols-4 sm:gap-9 ml-12 md:ml-0  mt-10">
+      <div className="flex justify-center mt-1 border-t-4 border-cyan-300">
+        <div className="grid grid-cols-2 text-sm gap-5 sm:grid-cols-4 sm:gap-9  md:ml-0  mt-5">
             <div className="text-center">
                 <label htmlFor="" className="font-bold lg:text-xl">Product</label>
                 <ul className="mt-3 ">
@@ -101,7 +101,7 @@ const Footer = () => {
             </div>
         </div>
       </div>
-      <center className="py-4">
+      <center className="py-4 text-sm">
             Reserved All rights@copyright 2025
         </center>
     </>

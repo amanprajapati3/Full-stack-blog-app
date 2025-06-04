@@ -17,14 +17,14 @@ app.use(cors());
 
 console.log(
   "🔍 Cloudinary Config:",
-  process.env.cloud_name,
-  process.env.api_key
+  process.env.CLOUD_NAME,
+  process.env.API_KEY
 );
 
 if (
-  !process.env.cloud_name ||
-  !process.env.api_key ||
-  !process.env.api_secret
+  !process.env.CLOUD_NAME ||
+  !process.env.API_KEY ||
+  !process.env.API_SECRET
 ) {
   console.error(
     "❌ Cloudinary configuration is missing! Check your .env file."
@@ -45,16 +45,16 @@ app.use("/api/blog", Route);
 
 // Cloudinary Config
 cloudinary.config({
-  cloud_name: process.env.cloud_name,
-  api_key: process.env.api_key,
-  api_secret: process.env.api_secret,
+  CLOUD_NAME: process.env.CLOUD_NAME,
+  API_KEY: process.env.API_KEY,
+  API_SECRET: process.env.API_SECRET,
 });
 
 // Debugging: Check if Cloudinary credentials are available
 if (
-  !process.env.cloud_name ||
-  !process.env.api_key ||
-  !process.env.api_secret
+  !process.env.CLOUD_NAME ||
+  !process.env.API_KEY ||
+  !process.env.API_SECRET
 ) {
   console.error(
     "❌ Cloudinary configuration is missing! Check your .env file."

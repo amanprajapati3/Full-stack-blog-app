@@ -11,11 +11,11 @@ const Dashboard = () => {
  
   return (
     <div className="mt-10">
-      <div className="flex gap-20">
+      <div className="sm:flex">
         <div className="">
         <SideBar component={component} setComponent={setComponent}/>
         </div>
-        <div className="">
+        <div className=" p-3">
           {
            component === "My_profile" ? (
             <MyProfile/>
