@@ -11,7 +11,7 @@ const Coding = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3600/api/blog/GetAll"
+          "https://my-blog-app-x13f.onrender.com/api/blog/GetAll"
         );
         console.log(response.data); 
         setBlogs(response.data); 

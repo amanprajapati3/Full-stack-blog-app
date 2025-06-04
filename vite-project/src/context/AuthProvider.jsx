@@ -8,7 +8,7 @@ export const AuthProvider = ({children}) => {
     useEffect(()=>{
         const fetchBlogs = async () =>{
             try {
-                const response = await axios.get("http://localhost:3600/api/blog/GetAll");
+                const response = await axios.get("https://my-blog-app-x13f.onrender.com/api/blog/GetAll");
                 console.log(response);
                 setBlogs(response.data);
             } catch (error) {

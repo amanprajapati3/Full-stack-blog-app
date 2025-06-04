@@ -8,7 +8,7 @@ const Creators = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3600/api/users/AllAdmin"
+          "https://my-blog-app-x13f.onrender.com/api/users/AllAdmin"
         );
         console.log(response.data); // Log data to console
         setAdmin(response.data); // Update state with data

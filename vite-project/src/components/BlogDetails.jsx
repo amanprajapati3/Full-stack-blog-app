@@ -30,7 +30,7 @@ const BlogDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3600/api/blog//getOne/${id}`)
+      .get(`https://my-blog-app-x13f.onrender.com/api/blog//getOne/${id}`)
       .then((response) => {
         console.log(response.data);
         setBlog(response.data);

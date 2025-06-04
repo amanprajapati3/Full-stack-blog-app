@@ -45,7 +45,7 @@ const Registeres = () => {
   
       // Send the data to the backend
       try {
-        const response = await axios.post("http://localhost:3600/api/users/registered", user
+        const response = await axios.post("https://my-blog-app-x13f.onrender.com/api/users/registered", user
            
         );
 

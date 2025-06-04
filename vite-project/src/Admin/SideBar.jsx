@@ -27,7 +27,7 @@ const SideBar = ({ setComponent }) => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3600/api/users/AllAdmin"
+          "https://my-blog-app-x13f.onrender.com/api/users/AllAdmin"
         );
         setAdmin(response.data);
       } catch (error) {

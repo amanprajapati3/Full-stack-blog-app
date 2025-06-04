@@ -55,7 +55,7 @@ const CreateBlog = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3600/api/blog/Create",
+        "https://my-blog-app-x13f.onrender.com/api/blog/Create",
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );

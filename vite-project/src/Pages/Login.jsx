@@ -23,7 +23,7 @@ const form_data = (e) => {
 const HandleSubmitForm = async (e) => {
   e.preventDefault();
   await axios
-    .post("http://localhost:3600/api/users/login", Users)
+    .post("https://my-blog-app-x13f.onrender.com/api/users/login", Users)
     .then((response) => {
       toast.success(response.data.msg, {position:"top-right"})
       console.log(response.data);

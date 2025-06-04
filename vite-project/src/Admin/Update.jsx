@@ -39,7 +39,7 @@ const Update = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3600/api/blog//getOne/${id}`)
+      .get(`https://my-blog-app-x13f.onrender.com/api/blog//getOne/${id}`)
       .then((response) => {
         setBlog(response.data);
       })
@@ -51,7 +51,7 @@ const Update = () => {
   const HandleSubmitForm = async (e) => {
     e.preventDefault();
     await axios
-      .put(`http://localhost:3600/api/blog/Updata_blogData/${id}`, blog)
+      .put(`https://my-blog-app-x13f.onrender.com/api/blog/Updata_blogData/${id}`, blog)
       .then((response) => {
         toast.success(response.data.msg, { position: "top-right" });
         navigate("/");

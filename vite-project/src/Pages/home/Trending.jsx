@@ -11,7 +11,7 @@ const Trending = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3600/api/blog/GetAll"
+          "https://my-blog-app-x13f.onrender.com/api/blog/GetAll"
         );
         console.log(response.data); // Log data to console
         setBlogs(response.data); // Update state with data

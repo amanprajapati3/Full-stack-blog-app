@@ -11,7 +11,7 @@ const Myblog = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:3600/api/blog/GetAll"
+          "https://my-blog-app-x13f.onrender.com/api/blog/GetAll"
         );
         console.log(response.data); // Log data to console
         setBlogs(response.data); // Update state with data
@@ -25,7 +25,7 @@ const Myblog = () => {
   const DeleteUser = async (Blog_id) => {
     console.log("Blog Id deleted:", Blog_id);
     await axios
-      .delete(`http://localhost:3600/api/blog/Delete_Blog/${Blog_id}`)
+      .delete(`https://my-blog-app-x13f.onrender.com/api/blog/Delete_Blog/${Blog_id}`)
       .then((response) => {
         setBlogs((prevUser) =>
           prevUser.filter((blogs) => blogs._id !== Blog_id)
