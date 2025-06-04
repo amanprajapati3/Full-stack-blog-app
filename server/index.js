@@ -61,15 +61,15 @@ if (
   );
 }
 
-const port = 3600;
+const PORT = process.env.PORT || 3600;
 const mongo_url = process.env.DATABASE_URL
 mongoose
   .connect(mongo_url)
   .then(() => {
     console.log("connected to server successfully");
-    app.listen(port, () => {
+    app.listen(PORT, () => {
       console.log(
-        `your website is running at address http://localhost:${port}`
+        `your website is running at address http://localhost:${PORT}`
       );
     });
   })
