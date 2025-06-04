@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Registeres = () => {
 
@@ -141,7 +141,7 @@ const Registeres = () => {
                12th
               </option>
             </select>
-            <center className="py-2">Already registered? <a href="/login" className="text-blue-700">Login</a></center>
+            <center className="py-2">Already registered? <NavLink to={"/login"} className="text-blue-700">Login</NavLink></center>
             <button type="submit" className="rounded-md bg-blue-800 active:bg-blue-500 text-white mt-1 mb-4 w-[100%] py-1">
                 Register
             </button>

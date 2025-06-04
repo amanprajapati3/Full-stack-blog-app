@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react'
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -75,7 +75,7 @@ const HandleSubmitForm = async (e) => {
               onChange={form_data}
                className="rounded-md outline-none border-2 border-gray-500 py-2 focus:bg-gray-200 pl-2 my-3 w-[100%]"
             />
-            <center className="py-2">New User? <a href="/registered" className="text-blue-700">Register</a></center>
+            <center className="py-2">New User? <NavLink to={"/registered"} className="text-blue-700">Register</NavLink></center>
             <button type="submit" className="rounded-md bg-blue-800 active:bg-blue-500 text-white mt-1 mb-4 w-[100%] py-1 hover:bg-blue-500">
                 Login
             </button>

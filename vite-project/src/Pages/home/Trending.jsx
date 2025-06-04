@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { NavLink } from "react-router-dom";
 
 const Trending = () => {
   const [blogs, setBlogs] = useState([]);
@@ -54,13 +55,13 @@ const Trending = () => {
               >
                 {" "}
                 {/* Use a unique identifier like _id */}{" "}
-                <a href={`/blog_details/${blog._id}`}>
+                <NavLink to={`/blog_details/${blog._id}`}>
                 <img
                   src={blog.blog_img.url}
                   alt=""
                   className="w-full h-60 transition-all duration-300 rounded-xl hover:scale-110"
                 />
-                </a>
+                </NavLink>
                 <h1 className="text-2xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
                   {blog.category}
                 </h1>
