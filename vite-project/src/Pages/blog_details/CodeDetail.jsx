@@ -34,7 +34,7 @@ const CodeDetail = () => {
         <div className="relative">
           <div className="absolute inset-0 z-0">
             <img
-              src="/coding.jpg"
+              src="public/coding.jpg"
               alt="Background"
               className="w-full h-full object-cover filter brightness-50"
             />

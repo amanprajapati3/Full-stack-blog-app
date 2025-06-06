@@ -32,7 +32,7 @@ const Blogs = () => {
         <div className="relative">
           <div className="absolute inset-0 z-0">
             <img
-              src="/blog2.jpg"
+              src="public/blog2.jpg"
               alt="Background"
               className="w-full h-full object-cover filter brightness-50"
             />

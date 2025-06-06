@@ -34,7 +34,7 @@ const GameDetail = () => {
         <div className="relative">
           <div className="absolute inset-0 z-0">
             <img
-              src="/game.jpg"
+              src="public/game.jpg"
               alt="Background"
               className="w-full h-full object-cover filter brightness-50"
             />

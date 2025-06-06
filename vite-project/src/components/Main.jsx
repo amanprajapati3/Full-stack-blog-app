@@ -8,7 +8,7 @@ const Main = () => {
       <div className="relative">
         <div className="absolute inset-0 z-0">
           <img
-            src="/blog.jpg"
+            src="public/blog.jpg"
             alt="Background"
             className="w-full h-full object-cover filter brightness-50"
           />
