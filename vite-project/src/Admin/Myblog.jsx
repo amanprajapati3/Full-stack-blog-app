@@ -53,6 +53,7 @@ const Myblog = () => {
               <Loader />
             ) : (
               blogs.map((blog) => {
+                 const imageUrl = blog?.blog_img?.url || "https://www.shutterstock.com/image-photo/bloggingblog-concepts-ideas-white-worktable-260nw-1029506242.jpg";
                 return (
                   <div
                     key={blog._id}
@@ -61,7 +62,7 @@ const Myblog = () => {
                     {" "}
                     {/* Use a unique identifier like _id */}{" "}
                     <img
-                      src={blog.blog_img.url}
+                      src={imageUrl}
                       alt=""
                       className="w-[100%] h-60  transition-all duration-200 filter grayscale-100 hover:grayscale-0"
                     />

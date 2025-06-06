@@ -61,6 +61,7 @@ const Trending = () => {
         ) : (
           <Carousel responsive={responsive}>
             {blogs.slice(0, 4).map((blog) => {
+              const imageUrl = blog?.blog_img?.url || "https://www.shutterstock.com/image-photo/bloggingblog-concepts-ideas-white-worktable-260nw-1029506242.jpg";
               return (
                 <div
                   key={blog._id}
@@ -70,8 +71,8 @@ const Trending = () => {
                   {/* Use a unique identifier like _id */}{" "}
                   <NavLink to={`/blog_details/${blog._id}`}>
                     <img
-                      src={blog.blog_img.url}
-                      alt=""
+                      src={imageUrl}
+                      alt="image"
                       className="w-full h-60 gap-4 transition-all duration-300 hover:scale-110"
                     />
                   </NavLink>

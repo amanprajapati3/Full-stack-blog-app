@@ -60,6 +60,7 @@ const Blogs = () => {
                 <Loader />
               ) : (
                 blogs.map((blog) => {
+                  const imageUrl = blog?.blog_img?.url || "https://www.shutterstock.com/image-photo/bloggingblog-concepts-ideas-white-worktable-260nw-1029506242.jpg";
                   return (
                     <div
                       key={blog._id}
@@ -69,7 +70,7 @@ const Blogs = () => {
                       {/* Use a unique identifier like _id */}{" "}
                       <NavLink to={`/blog_details/${blog._id}`}>
                         <img
-                          src={blog.blog_img.url}
+                          src={imageUrl}
                           alt=""
                           className="w-full h-60 transition-all duration-300 hover:scale-110"
                         />
