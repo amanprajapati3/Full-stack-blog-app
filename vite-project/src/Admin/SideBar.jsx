@@ -37,7 +37,6 @@ const SideBar = ({ setComponent }) => {
     fetchData();
   }, []);
 
-  // Prevent background scroll when sidebar is open on mobile
   useEffect(() => {
     if (IsMenu) {
       document.body.style.overflow = "hidden";
@@ -52,14 +51,14 @@ const SideBar = ({ setComponent }) => {
 
   return (
     <>
-      {/* Mobile menu toggle button */}
+      
       <div className="md:hidden fixed top-4 left-4 z-50">
         <button className="text-3xl cursor-pointer text-gray-800" onClick={ToggleMenu}>
           {IsMenu ? <FaArrowLeft /> : <RiMenu2Fill />}
         </button>
       </div>
 
-      {/* Backdrop for mobile sidebar */}
+  
       {IsMenu && (
         <div
           className="fixed inset-0  bg-opacity-50 z-40 md:hidden"
@@ -67,7 +66,6 @@ const SideBar = ({ setComponent }) => {
         />
       )}
 
-      {/* Sidebar */}
       <div
         className={`fixed md:relative bg-gray-200 w-72 h-full shadow-2xl shadow-gray-400 transition-transform duration-300 transform z-50
         ${IsMenu ? "translate-x-0" : "-translate-x-full md:translate-x-0"}`}

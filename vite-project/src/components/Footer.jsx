@@ -2,7 +2,7 @@
 const Footer = () => {
   return (
     <>
-      <div className="flex justify-center mt-1 border-t-4 border-cyan-300">
+      <div className="flex justify-center mt-1 border-t-4 border-gray-300">
         <div className="grid grid-cols-2 text-sm gap-5 sm:grid-cols-4 sm:gap-9  md:ml-0  mt-5">
             <div className="text-center">
                 <label htmlFor="" className="font-bold lg:text-xl">Product</label>

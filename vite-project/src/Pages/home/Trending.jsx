@@ -3,20 +3,25 @@ import { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { NavLink } from "react-router-dom";
+import Loader from "../../components/Loader";
 
 const Trending = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await axios.get(
           "https://my-blog-app-x13f.onrender.com/api/blog/GetAll"
         );
-        console.log(response.data); // Log data to console
-        setBlogs(response.data); // Update state with data
+        console.log(response.data);
+        setBlogs(response.data);
       } catch (error) {
-        console.error("Error fetching data: ", error); // Log error details
+        console.error("Error fetching data: ", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -24,13 +29,16 @@ const Trending = () => {
 
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
+    lg_desktop: {
+      breakpoint: { max: 3000, min: 1200 },
       items: 4,
+    },
+    desktop: {
+      breakpoint: { max: 1200, min: 1024 },
+      items: 3,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -44,34 +52,47 @@ const Trending = () => {
 
   return (
     <>
-      <h1 className="font-bold text-center md:text-left font-sans text-2xl pb-10 md:pl-24">Trending</h1>
-      <div className="border-2 border-gray-300 md:mx-20 mb-20 p-5 rounded-xl">
-        <Carousel responsive={responsive}>
-          {blogs.slice(0, 8).map((blog) => {
-            return (
-              <div
-                key={blog._id}
-                className="border-2 border-gray-300 rounded-2xl gap-5 overflow-hidden cursor-pointer"
-              >
-                {" "}
-                {/* Use a unique identifier like _id */}{" "}
-                <NavLink to={`/blog_details/${blog._id}`}>
-                <img
-                  src={blog.blog_img.url}
-                  alt=""
-                  className="w-full h-60 transition-all duration-300 rounded-xl hover:scale-110"
-                />
-                </NavLink>
-                <h1 className="text-2xl relative -mt-10 mb-5 ml-5 text-purple-300 font-sans font-bold ">
-                  {blog.category}
-                </h1>
-                <p className="relative  mb-5 ml-5  font-sans  ">
-                  {blog.title}
-                </p>
-              </div>
-            );
-          })}
-        </Carousel>
+      <h1 className="font-bold text-center pt-8 font-sans text-3xl sm:text-5xl sm:pb-10 md:pl-24">
+        Our Latest Blogs
+      </h1>
+      <div className=" md:mx-20 mb-20 p-5">
+        {loading ? (
+          <Loader />
+        ) : (
+          <Carousel responsive={responsive}>
+            {blogs.slice(0, 4).map((blog) => {
+              return (
+                <div
+                  key={blog._id}
+                  className="p-3 overflow-hidden cursor-pointer"
+                >
+                  {" "}
+                  {/* Use a unique identifier like _id */}{" "}
+                  <NavLink to={`/blog_details/${blog._id}`}>
+                    <img
+                      src={blog.blog_img.url}
+                      alt=""
+                      className="w-full h-60 gap-4 transition-all duration-300 hover:scale-110"
+                    />
+                  </NavLink>
+                  <h1 className="pl-1 pt-3 text-center text-xl font-bold ">
+                    {blog.title}
+                  </h1>
+                  <p className=" pr-1 overflow-hidden h-[70px] pl-1">
+                    {blog.about}
+                  </p>
+                  <center>
+                    <NavLink to={`/blog_details/${blog._id}`}>
+                      <button className="my-3 text-blue-600 cursor-pointer border-b-2 border-b-blue-800">
+                        Read More
+                      </button>
+                    </NavLink>
+                  </center>
+                </div>
+              );
+            })}
+          </Carousel>
+        )}
       </div>
     </>
   );

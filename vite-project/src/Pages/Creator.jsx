@@ -1,15 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react'
 import Footer from '../components/Footer';
+import Loader from '../components/Loader';
 
 const Creator = () => {
 
     const [admin, setAdmin] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       
       const fetchData = async () => {
         try {
+          setLoading(true);
           const response = await axios.get(
             "https://my-blog-app-x13f.onrender.com/api/users/AllAdmin"
           );
@@ -17,6 +20,8 @@ const Creator = () => {
           setAdmin(response.data); // Update state with data
         } catch (error) {
           console.error("Error fetching data: ", error); // Log error details
+        } finally{
+          setLoading(false);
         }
       };
       fetchData();
@@ -26,8 +31,11 @@ const Creator = () => {
   return (
     <>
     <div className="mb-16 mt-8">
-    <h1 className="font-bold font-sans text-2xl md:pl-24 text-center md:text-start">Creators</h1>
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 lg:mx-16 sm:mx-10 mx-7 mt-6">
+    <h1 className="font-bold font-sans text-3xl md:text-5xl text-center">Creators</h1>
+    {loading ? (
+      <Loader/>
+    ) : (
+<div className="grid grid-cols-1 sm:grid-cols-2 gap-10 md:grid-cols-3 lg:grid-cols-4 lg:mx-16 sm:mx-10 mx-7 mt-6">
     {admin.slice(0, 8).map((admins) => {
       return (
         <div key={admins._id} className='border-2 border-gray-300 rounded-2xl p-2'>
@@ -52,6 +60,8 @@ const Creator = () => {
       );
     })}
     </div>
+    )}
+    
     <Footer/>
   </div>
   </>

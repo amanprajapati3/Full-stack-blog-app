@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { GrUserAdmin } from "react-icons/gr";
 
 const Header = () => {
   const [IsMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="sm:px-16  bg-gray-300  flex justify-between sticky w-full z-10 px-2 top-0">
+      <div className="sm:px-16 bg-white flex justify-between sticky w-full z-10 px-2 top-0">
         <div>
           <NavLink to={"/"}>
             <h1 className="text-2xl lg:text-3xl pt-3 font-sans hover:text-blue-700">
@@ -19,73 +20,66 @@ const Header = () => {
             </h1>
           </NavLink>
         </div>
-        <nav className="">
-          <ul className="hidden md:flex h-full ">
-            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
-              <NavLink to={"/"}>Home</NavLink>
-              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-            </li>
-            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
-              <NavLink to={"/blog"}>Blog</NavLink>
-              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-            </li>
-            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
-              <NavLink to={"/creators"}>Creator</NavLink>
-              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-            </li>
-            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
-              <NavLink to={"/about"}>About</NavLink>
-              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-            </li>
-            <li className="py-5 px-3 hover:bg-gray-100 hover:text-gray-900 duration-300 transition-all hover:scale-110">
-              <NavLink to={"/Contact"}>Contact</NavLink>
-              <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-            </li>
+        <nav className="hidden md:flex">
+          <ul className="flex h-full">
+            {["/", "/blog", "/creators", "/about", "/Contact"].map((path, index) => (
+              <li
+                key={index}
+                className="py-5 px-3 hover:bg-gray-950 hover:text-white duration-300 transition-all"
+              >
+                <NavLink to={path}>
+                  <p>{["Home", "My Blog", "Creator", "About us", "Contact us"][index]}</p>
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
+
         <div className="flex sm:gap-5 gap-2 sm:mr-1 my-3">
           <div className="md:hidden">
-            <button onClick={toggleMenu} className="text-xl pt-1 sm:text-2xl cursor-pointer">
+            <button
+              onClick={toggleMenu}
+              className="text-xl pt-1 sm:text-2xl cursor-pointer"
+            >
               {IsMenuOpen ? <FaTimes /> : <FaBars />}
             </button>
           </div>
-          <button className="p-1 h-fit bg-blue-800 hover:opacity-90 text-white rounded-sm">
-            {" "}
-            <NavLink to={"/dashboard"}>Admin</NavLink>
+          <button
+            title="Admin"
+            className="py-2 sm:px-7 px-2 sm:text-2xl h-fit bg-blue-800 hover:text-blue-700 hover:bg-blue-300 cursor-pointer transition-all duration-300 active:scale-95 text-white rounded-sm"
+          >
+            <NavLink to={"/dashboard"}>
+              <GrUserAdmin />
+            </NavLink>
           </button>
-          <button className="p-1 h-fit  bg-red-800 hover:opacity-90 text-white rounded-sm">
-            {" "}
+          <button
+            title="Login"
+            className="sm:py-2 py-1 sm:px-3 px-2 h-fit bg-orange-700 hover:text-blue-700 hover:bg-blue-300 cursor-pointer transition-all duration-300 active:scale-95 text-white rounded-sm"
+          >
             <NavLink to={"/registered"}>Login</NavLink>
           </button>
         </div>
       </div>
-      {/* navbar for mobile responsive */}
-      <div className="flex text-center justify-center">
+
+      {/* Mobile Navigation Menu */}
+      <div className="md:hidden">
         <ul
-          className={`transition-all duration-300 ${
-            IsMenuOpen ? "block scale-y-100 mt-4 " : "hidden scale-y-0"
-          }`}
+          className={`fixed top-[55px] right-0 h-screen bg-white z-40 w-[100%]  transform transition-transform duration-500 ease-in-out
+          ${IsMenuOpen ? "translate-x-0 shadow-2xl shadow-black" : "translate-x-full "}`}
         >
-          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
-            <NavLink to={"/"}>Home</NavLink>
-            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-          </li>
-          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
-            <NavLink to={"/blog"}>Blog</NavLink>
-            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-          </li>
-          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
-            <NavLink to={"/creators"}>Creators</NavLink>
-            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-          </li>
-          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
-            <NavLink to={"/about"}>About</NavLink>
-            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-          </li>
-          <li className="py-1 px-20 rounded-md hover:scale-110 transition-all duration-300 hover:text-blue-600 ">
-            <NavLink to={"/contact"}>Contact</NavLink>
-            <hr className="w-3/4 h-[2px] ml-1 text-blue-700 hidden" />
-          </li>
+          {["/", "/blog", "/creators", "/about", "/Contact"].map((path, index) => (
+            <li
+              key={index}
+              className="py-2 px-4 text-center border-b border-gray-600 hover:text-red-600 transition-all"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <NavLink to={path}>
+                <p className=" text-gray-900 hover:text-blue-600">
+                  {["Home", "My Blog", "Creator", "About us", "Contact us"][index]}
+                </p>
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
     </>
