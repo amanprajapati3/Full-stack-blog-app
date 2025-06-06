@@ -29,10 +29,10 @@ const Sports = () => {
 
   return (
     <>
-      <h1 className="font-bold font-sans text-3xl sm:text-5xl  text-center pb-5">Sports</h1>
+      <h1 className="font-bold font-sans text-5xl  text-center pb-5">Sports</h1>
       <div className="mt-5 md:mb-12 mb-4 mx-5 flex justify-center">
         <div className="flex flex-wrap gap-5">
-          <div className="flex justify-center md:gap-10 gap-4 flex-wrap lg:mx-20 md:mx-5 sm:mx-2 mx-2 ">
+          <div className="flex justify-center md:gap-10 gap-4 flex-wrap lg:mx-10 md:mx-5 sm:mx-2 mx-2 ">
             {loading ? (
               <Loader/>
             ) : (

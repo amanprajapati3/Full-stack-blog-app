@@ -52,7 +52,7 @@ const Trending = () => {
 
   return (
     <>
-      <h1 className="font-bold text-center pt-8 font-sans text-3xl sm:text-5xl sm:pb-10 md:pl-24">
+      <h1 className="font-bold text-center pt-8 font-sans text-3xl sm:text-5xl sm:pb-10 ">
         Our Latest Blogs
       </h1>
       <div className=" md:mx-20 mb-20 p-5">

@@ -29,12 +29,12 @@ const Coding = () => {
 
   return (
     <>
-      <h1 className="font-bold font-sans sm:text-5xl text-3xl  text-center ">
+      <h1 className="font-bold font-sans text-5xl  text-center ">
         Coding
       </h1>
       <div className="mt-10 mb-8 flex justify-center">
         <div className="flex flex-wrap gap-5">
-          <div className="flex justify-center md:gap-10 gap-4 flex-wrap lg:mx-20 md:mx-5 sm:mx-2 mx-2 ">
+          <div className="flex justify-center md:gap-10 gap-4 flex-wrap lg:mx-10 md:mx-5 sm:mx-2 mx-2 ">
             {loading ? (
               <Loader />
             ) : (
