@@ -96,7 +96,7 @@ const BlogDetails = () => {
                 {blog.title}
               </h1>
               <br />
-              <p className="p-4 sm:px-10 md:px-16 text-sm">{blog.about}</p>
+              <p className="p-4 sm:px-10 md:px-16 text-lg">{blog.about}</p>
             </span>
           </div>
 

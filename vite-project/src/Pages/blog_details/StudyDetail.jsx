@@ -53,10 +53,10 @@ const StudyDetail = () => {
             </button>
           </div>
         </div>
-        <h1 className="font-bold font-sans text-3xl py-10 sm:text-5xl md:pl-24 text-center pb-5">
+        <h1 className="font-bold font-sans  py-10 text-5xl text-center pb-5">
           Study
         </h1>
-        <div className="flex justify-center md:gap-10 gap-4 flex-wrap lg:mx-20 md:mx-5 sm:mx-2 mx-2 ">
+        <div className="flex justify-center md:gap-10 gap-4 flex-wrap lg:mx-10 md:mx-5 sm:mx-2 mx-2 ">
           {loading ? (
             <Loader />
           ) : (
