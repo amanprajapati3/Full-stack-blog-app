@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { NavLink, useAsyncError } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 
@@ -32,7 +32,7 @@ const Blogs = () => {
         <div className="relative">
           <div className="absolute inset-0 z-0">
             <img
-              src="public/blog2.jpg"
+              src="/blog2.jpg"
               alt="Background"
               className="w-full h-full object-cover filter brightness-50"
             />
